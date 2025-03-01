@@ -65,7 +65,7 @@
             elements.options.innerHTML = '';
 
             try {
-                const response = await fetch('/getQuestion');
+                const response = await fetch('/api/getQuestion');
                 const question = await response.json();
 
                 console.log("Question data:", question);
@@ -100,7 +100,7 @@
             });
 
             try {
-                const response = await fetch('/checkAnswer', {
+                const response = await fetch('/api/checkAnswer', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
