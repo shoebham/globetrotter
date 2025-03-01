@@ -1,0 +1,1602 @@
+[
+  {
+    "city": "Nanchang",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Lima",
+    "country": "Peru",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Lahore",
+    "country": "Pakistan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Chongqing",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Fukuoka",
+    "country": "Japan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Bekasi",
+    "country": "Indonesia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Delhi",
+    "country": "India",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Curitiba",
+    "country": "Brazil",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Ankara",
+    "country": "Turkey",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Ürümqi",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Atlanta",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Tehran",
+    "country": "Iran",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Belém",
+    "country": "Brazil",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Casablanca",
+    "country": "Morocco",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Benoni",
+    "country": "South Africa",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Baku",
+    "country": "Azerbaijan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Detroit",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Dar es Salaam",
+    "country": "Tanzania",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Tokyo",
+    "country": "Japan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "El Giza",
+    "country": "Egypt",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Dalian",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Santo Domingo",
+    "country": "Dominican Republic",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Bogota",
+    "country": "Colombia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Nagpur",
+    "country": "India",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Tel Aviv-Yafo",
+    "country": "Israel",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Chicago",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Recife",
+    "country": "Brazil",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Beijing",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Shenyeng",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Houston",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Zhangzhou",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Lisbon",
+    "country": "Portugal",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Yantai",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Haora",
+    "country": "India",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Barcelona",
+    "country": "Spain",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Naples",
+    "country": "Italy",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Los Angeles",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Bangalore",
+    "country": "India",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Harbin",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Montréal",
+    "country": "Canada",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Kaohsiung",
+    "country": "Taiwan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Aleppo",
+    "country": "Syria",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Algiers",
+    "country": "Algeria",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Jinan",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Melbourne",
+    "country": "Australia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Ahmedabad",
+    "country": "India",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Nanning",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Nanjing",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "St. Petersburg",
+    "country": "Russia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Durban",
+    "country": "South Africa",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Tampa",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Quezon City",
+    "country": "Philippines",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "San Diego",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Ōsaka",
+    "country": "Japan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "İzmir",
+    "country": "Turkey",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Xiamen",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Sapporo",
+    "country": "Japan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Taiyuan",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Sydney",
+    "country": "Australia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "San Francisco",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Tripoli",
+    "country": "Libya",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Minneapolis",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Vienna",
+    "country": "Austria",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Puebla",
+    "country": "Mexico",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Campinas",
+    "country": "Brazil",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Belo Horizonte",
+    "country": "Brazil",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Manila",
+    "country": "Philippines",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Xian",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Baltimore",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Sendai",
+    "country": "Japan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Wenzhou",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Nairobi",
+    "country": "Kenya",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Vancouver",
+    "country": "Canada",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Ibadan",
+    "country": "Nigeria",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Wuhan",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "New York",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Havana",
+    "country": "Cuba",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Shijianzhuang",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Kolkata",
+    "country": "India",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Fortaleza",
+    "country": "Brazil",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Medellín",
+    "country": "Colombia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Karachi",
+    "country": "Pakistan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Birmingham",
+    "country": "United Kingdom",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Rome",
+    "country": "Italy",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Jeddah",
+    "country": "Saudi Arabia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Tunis",
+    "country": "Tunisia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Washington",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Santa Cruz",
+    "country": "Bolivia",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Yokohama",
+    "country": "Japan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Toronto",
+    "country": "Canada",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Omdurman",
+    "country": "Sudan",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Tianjin",
+    "country": "China",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Boston",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Seattle",
+    "country": "United States",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  },
+  {
+    "city": "Monterrey",
+    "country": "Mexico",
+    "clues": [
+      "This is a placeholder clue about this city.",
+      "This is another placeholder clue about this city."
+    ],
+    "fun_fact": [
+      "This is a placeholder fun fact about this city!",
+      "This is another placeholder fun fact about this city!"
+    ],
+    "trivia": [
+      "This is a placeholder trivia item about this city.",
+      "This is another placeholder trivia item about this city."
+    ]
+  }
+]
