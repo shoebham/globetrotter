@@ -1626,20 +1626,21 @@ const cities = [
   },
 ];
 
-// cityJson = JSON.parse(cities);
+let i = 0;
 cities.forEach(async (city) => {
   let shuffledCities = cities.sort(() => 0.5 - Math.random());
   let options = shuffledCities.slice(0, 8);
   options = options.map((e) => e.city);
   options.push(city.city);
   options = [...new Set(options)];
-  //   console.log(city.clues[Math.floor(Math.random() * city.clues.length)]);
-  //   console.log(options);
-  const docId = await addDoc(collection(db, "questions"), {
+  let docId = `question-${i++}`;
+  await setDoc(doc(db, "questions", docId), {
     clue: city.clues[Math.floor(Math.random() * city.clues.length)],
     options: options,
-    correctAnswer: city.city,
     funFact: city.fun_fact,
   });
-  console.log("added document with id ", docId);
+  const answer = await addDoc(collection(db, "answers"), {
+    answer: city.city,
+    docId: docId,
+  });
 });
