@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobeTrotter - Travel Quiz</title>
+</head>
+
+<body>
+    <h1>GlobeTrotter Quiz</h1>
+
+    <div id="loading">Loading question...</div>
+
+    <div id="questionContainer" style="display: none;">
+        <p><strong>Clue:</strong> <span id="clue"></span></p>
+        <p><strong>Where is this place?</strong></p>
+        <div id="options"></div>
+    </div>
+
+    <div id="feedback" style="display: none;">
+        <p id="feedbackText"></p>
+        <p><strong>Fun Fact:</strong> <span id="funFact"></span></p>
+    </div>
+
+    <div>
+        <p><strong>Score:</strong> <span id="score">0</span></p>
+        <p><strong>Correct:</strong> <span id="correctAnswers">0</span></p>
+        <p><strong>Total:</strong> <span id="totalAnswers">0</span></p>
+    </div>
+
+    <button id="nextBtn" style="display: none;">Next Question</button>
+
+    <script>
+        // Game state
+        let state = {
+            score: 0,
+            correctAnswers: 0,
+            totalAnswers: 0,
+            currentQuestion: null
+        };
+
+        // DOM elements
+        const elements = {
+            clue: document.getElementById('clue'),
+            options: document.getElementById('options'),
+            feedback: document.getElementById('feedback'),
+            feedbackText: document.getElementById('feedbackText'),
+            funFact: document.getElementById('funFact'),
+            nextBtn: document.getElementById('nextBtn'),
+            score: document.getElementById('score'),
+            correctAnswers: document.getElementById('correctAnswers'),
+            totalAnswers: document.getElementById('totalAnswers'),
+            loading: document.getElementById('loading'),
+            questionContainer: document.getElementById('questionContainer')
+        };
+
+        // Load a new question
+        async function loadQuestion() {
+            // Reset UI
+            elements.feedback.style.display = 'none';
+            elements.nextBtn.style.display = 'none';
+            elements.loading.style.display = 'block';
+            elements.questionContainer.style.display = 'none';
+            elements.options.innerHTML = '';
+
+            try {
+                const response = await fetch('/getQuestion');
+                const question = await response.json();
+
+                console.log("Question data:", question);
+                state.currentQuestion = question;
+
+                // Display question
+                elements.clue.textContent = question.question;
+
+                // Create option buttons
+                question.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.addEventListener('click', () => checkAnswer(option));
+                    elements.options.appendChild(button);
+                });
+
+                // Show question container, hide loading
+                elements.loading.style.display = 'none';
+                elements.questionContainer.style.display = 'block';
+            } catch (error) {
+                console.error('Error loading question:', error);
+                elements.loading.textContent = 'Failed to load question. Please try again.';
+            }
+        }
+
+        // Check the answer
+        async function checkAnswer(selectedAnswer) {
+            // Disable all option buttons
+            const optionButtons = document.querySelectorAll('#options button');
+            optionButtons.forEach(button => {
+                button.disabled = true;
+            });
+
+            try {
+                const response = await fetch('/checkAnswer', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        answer: selectedAnswer,
+                        questionId: state.currentQuestion.questionId
+                    })
+                });
+
+                const result = await response.json();
+                console.log("Answer result:", result);
+
+                // Update score
+                state.totalAnswers++;
+                if (result.correct) {
+                    state.score += result.points;
+                    state.correctAnswers++;
+                }
+
+                // Update UI
+                elements.score.textContent = state.score;
+                elements.correctAnswers.textContent = state.correctAnswers;
+                elements.totalAnswers.textContent = state.totalAnswers;
+
+                // Show feedback
+                elements.feedbackText.textContent = result.correct ?
+                    `Correct! ${selectedAnswer} is the right answer.` :
+                    `Incorrect. The correct answer was ${result.correctAnswer}.`;
+
+                // Show fun fact if available
+                if (result.funFact && result.funFact.length > 0) {
+                    const randomFact = Array.isArray(result.funFact) ?
+                        result.funFact[Math.floor(Math.random() * result.funFact.length)] :
+                        result.funFact;
+                    elements.funFact.textContent = randomFact;
+                } else {
+                    elements.funFact.textContent = '';
+                }
+
+                elements.feedback.style.display = 'block';
+                elements.nextBtn.style.display = 'block';
+
+            } catch (error) {
+                console.error('Error checking answer:', error);
+                alert('Failed to check answer. Please try again.');
+
+                // Re-enable option buttons
+                optionButtons.forEach(button => {
+                    button.disabled = false;
+                });
+            }
+        }
+
+        // Event listeners
+        elements.nextBtn.addEventListener('click', loadQuestion);
+
+        // Load first question on page load
+        loadQuestion();
+    </script>
+</body>
+
+</html>
