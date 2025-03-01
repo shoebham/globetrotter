@@ -1637,10 +1637,14 @@ cities.forEach(async (city) => {
   await setDoc(doc(db, "questions", docId), {
     clue: city.clues[Math.floor(Math.random() * city.clues.length)],
     options: options,
-    funFact: city.fun_fact,
   });
-  const answer = await addDoc(collection(db, "answers"), {
+  await addDoc(collection(db, "answers"), {
     answer: city.city,
     docId: docId,
+  });
+
+  await addDoc(collection(db, "trivia"), {
+    funFact: city.fun_fact,
+    trivia: city.trivia,
   });
 });
