@@ -1627,18 +1627,23 @@ const cities = [
 ];
 
 let i = 0;
+let j = 0;
 cities.forEach(async (city) => {
-  let shuffledCities = cities.sort(() => 0.5 - Math.random());
+  let citiesFromSameCountry = cities.filter(
+    (c) => c.country === city.country && c.city !== city.city
+  );
+  let shuffledCities = citiesFromSameCountry.sort(() => 0.5 - Math.random());
   let options = shuffledCities.slice(0, 8);
   options = options.map((e) => e.city);
   options.push(city.city);
   options = [...new Set(options)];
   let docId = `question-${i++}`;
+  let answerId = `answer-${j++}`;
   await setDoc(doc(db, "questions", docId), {
     clue: city.clues[Math.floor(Math.random() * city.clues.length)],
     options: options,
   });
-  await addDoc(collection(db, "answers"), {
+  await setDoc(doc(db, "answers", answerId), {
     answer: city.city,
     docId: docId,
   });
@@ -1646,5 +1651,6 @@ cities.forEach(async (city) => {
   await addDoc(collection(db, "trivia"), {
     funFact: city.fun_fact,
     trivia: city.trivia,
+    answerId: answerId,
   });
 });
