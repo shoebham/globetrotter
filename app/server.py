@@ -7,15 +7,14 @@ import json
 import random
 import sqlite3
 
-from db import init_db
+from app import create_app
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
-CORS(app)
-
+app = create_app()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use threaded=True for better performance
+    app.run(debug=True, threaded=True)
 
 

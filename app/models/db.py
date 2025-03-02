@@ -16,7 +16,7 @@ DB_PATH = 'travel_quiz.db'
 
 # Simple cache implementation
 class Cache:
-    def __init__(self, max_size=100, ttl=60):  # TTL in seconds
+    def __init__(self, max_size=100, ttl=3600):  # TTL in seconds (increased to 1 hour)
         self.cache = {}
         self.max_size = max_size
         self.ttl = ttl
@@ -56,10 +56,12 @@ class Cache:
 # Create global cache
 user_cache = Cache()
 question_cache = Cache()
+# Add a city lookup cache for faster access by ID
+city_lookup_cache = Cache()
 
 # Connection pool for SQLite
 class ConnectionPool:
-    def __init__(self, max_connections=10):
+    def __init__(self, max_connections=20):  # Increased max connections
         self.max_connections = max_connections
         self.connections = []
         self.lock = threading.Lock()
@@ -84,6 +86,26 @@ class ConnectionPool:
 
 # Create a global connection pool
 connection_pool = ConnectionPool()
+
+# Pre-parse JSON data to avoid repeated parsing
+def preprocess_city_data(city):
+    """Pre-process city data to avoid repeated JSON parsing"""
+    if isinstance(city, dict):
+        result = dict(city)
+        if 'clues' in result and isinstance(result['clues'], str):
+            try:
+                result['clues_parsed'] = json.loads(result['clues'])
+            except:
+                result['clues_parsed'] = []
+        
+        if 'fun_fact' in result and isinstance(result['fun_fact'], str):
+            try:
+                result['fun_fact_parsed'] = json.loads(result['fun_fact'])
+            except:
+                result['fun_fact_parsed'] = []
+                
+        return result
+    return city
 
 def get_db_connection():
     """Get database connection based on environment"""
@@ -141,6 +163,13 @@ def init_db():
     # Create indexes for better performance
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_username ON users(username)')
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_user_id ON users(id)')
+    
+    # Add index on cities table if it exists
+    try:
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_city_id ON cities(id)')
+        cursor.execute('CREATE INDEX IF NOT EXISTS idx_city_country ON cities(country)')
+    except:
+        pass
     
     # Check if questions table is empty
     cursor.execute('SELECT COUNT(*) FROM questions')

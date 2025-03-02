@@ -1,12 +1,27 @@
-from flask import Flask
+from flask import Flask, request, g
 from flask_cors import CORS
 import os
 from dotenv import load_dotenv
 import sqlite3
 import json
+import time
 
 # Load environment variables from .env file if it exists
 load_dotenv()
+
+class ProfilingMiddleware:
+    def __init__(self, app):
+        self.app = app
+        
+    def __call__(self, environ, start_response):
+        start_time = time.time()
+        
+        def custom_start_response(status, headers, exc_info=None):
+            # Add timing header
+            headers.append(('X-Response-Time', str(time.time() - start_time)))
+            return start_response(status, headers, exc_info)
+        
+        return self.app(environ, custom_start_response)
 
 def create_app():
     # Create Flask app with proper configuration
@@ -24,6 +39,22 @@ def create_app():
     # Enable CORS
     CORS(app)
     
+    # Add profiling middleware
+    app.wsgi_app = ProfilingMiddleware(app.wsgi_app)
+    
+    # Add request timing
+    @app.before_request
+    def before_request():
+        g.start_time = time.time()
+    
+    @app.after_request
+    def after_request(response):
+        diff = time.time() - g.start_time
+        response.headers['X-Processing-Time'] = str(diff)
+        if diff > 0.5:  # Log slow requests
+            app.logger.warning(f"Slow request: {request.path} took {diff:.2f}s")
+        return response
+    
     # Register blueprints
     from app.routes.main import main_bp
     from app.routes.api import api_bp
@@ -32,7 +63,7 @@ def create_app():
     app.register_blueprint(api_bp, url_prefix='/api')
     
     # Initialize database
-    from app.models.db import init_db, question_cache, get_db_connection, release_db_connection
+    from app.models.db import init_db, question_cache, get_db_connection, release_db_connection, city_lookup_cache, preprocess_city_data
     init_db()
     
     # Preload data into cache for better performance
@@ -42,20 +73,26 @@ def create_app():
 
 def preload_cache():
     """Preload frequently accessed data into cache"""
-    from app.models.db import question_cache, get_db_connection, release_db_connection
+    from app.models.db import question_cache, get_db_connection, release_db_connection, city_lookup_cache, preprocess_city_data
     
     # Preload cities data
     try:
         conn = get_db_connection()
-        conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
         # Load all cities into cache
         cursor.execute("SELECT * FROM cities")
-        cities = [dict(row) for row in cursor.fetchall()]
+        cities = [preprocess_city_data(dict(row)) for row in cursor.fetchall()]
+        
         if cities:
+            # Cache the list of cities
             question_cache.set('all_cities', cities)
-            print(f"Preloaded {len(cities)} cities into cache")
+            
+            # Also build and cache a lookup dictionary for faster access by ID
+            city_dict = {city['id']: city for city in cities}
+            city_lookup_cache.set('cities_by_id', city_dict)
+            
+            print(f"Preloaded {len(cities)} cities into cache with preprocessing")
         
         release_db_connection(conn)
     except Exception as e:
