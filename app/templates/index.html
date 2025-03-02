@@ -44,6 +44,19 @@
             align-items: center;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 10;
+            flex-direction: column;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .header-bottom {
+            width: 100%;
         }
 
         .logo {
@@ -244,6 +257,140 @@
             transform: translateY(-2px);
         }
 
+        #challengeBtn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            align-self: center;
+            display: flex;
+            align-items: center;
+        }
+
+        #challengeBtn i {
+            margin-right: 8px;
+        }
+
+        #challengeBtn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .share-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .share-modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .share-modal-content h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .share-preview {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .share-preview img {
+            width: 100%;
+            height: auto;
+        }
+
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .share-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .whatsapp-share {
+            background-color: #25D366;
+        }
+
+        .whatsapp-share:hover {
+            background-color: #128C7E;
+        }
+
+        .copy-link {
+            background-color: var(--secondary);
+        }
+
+        .copy-link:hover {
+            background-color: #0f1a43;
+        }
+
+        #shareCanvas {
+            display: none;
+        }
+
+        .invited-banner {
+            background: linear-gradient(135deg, var(--primary), #ff7b7b);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+            position: relative;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        .invited-banner strong {
+            font-weight: bold;
+        }
+
+        .invited-banner .close-banner {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -322,11 +469,33 @@
             padding: 10px 15px;
             border-radius: 50px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .user-profile span {
             font-weight: bold;
             color: var(--secondary);
+            cursor: pointer;
+        }
+
+        .user-score-tooltip {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 100;
+            white-space: nowrap;
+        }
+
+        .user-profile span:hover+.user-score-tooltip {
+            display: block;
         }
 
         #logoutBtn {
@@ -390,14 +559,24 @@
 
 <body>
     <div class="header">
-        <div class="logo">
-            <i class="fas fa-globe-americas"></i> GlobeTrotter
+        <div class="header-top">
+            <div class="logo">
+                <i class="fas fa-globe-americas"></i> GlobeTrotter
+            </div>
+            <div id="authButtons">
+                <button id="showLoginBtn" class="login-btn">Login</button>
+                <div id="userProfile" class="user-profile">
+                    <span id="profileUsername"></span>
+                    <div class="user-score-tooltip">All-time score: <strong id="userTotalScore">0</strong></div>
+                    <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </div>
         </div>
-        <div id="authButtons">
-            <button id="showLoginBtn" class="login-btn">Login</button>
-            <div id="userProfile" class="user-profile">
-                <span id="profileUsername"></span>
-                <button id="logoutBtn"><i class="fas fa-sign-out-alt"></i></button>
+        <div class="header-bottom">
+            <div id="invitedBanner" class="invited-banner">
+                <p>You've been challenged by <strong id="inviterName">a friend</strong> who scored <strong
+                        id="inviterScore">0</strong> points! Can you beat them?</p>
+                <button class="close-banner" id="closeBannerBtn">&times;</button>
             </div>
         </div>
     </div>
@@ -435,6 +614,7 @@
             </div>
 
             <button id="nextBtn" style="display: none;">Next Question <i class="fas fa-arrow-right"></i></button>
+            <button id="challengeBtn" style="display: none;"><i class="fab fa-whatsapp"></i> Challenge a Friend</button>
         </div>
     </div>
 
@@ -455,6 +635,31 @@
         </div>
     </div>
 
+    <!-- Share Modal -->
+    <div id="shareModal" class="share-modal">
+        <div class="share-modal-content">
+            <span class="close" id="closeShareModal">&times;</span>
+            <h2>Challenge a Friend</h2>
+            <p>Share this link with a friend to challenge them to beat your score!</p>
+
+            <div class="share-preview">
+                <img id="shareImage" src="" alt="Challenge preview">
+            </div>
+
+            <div class="share-buttons">
+                <a id="whatsappShareBtn" class="share-button whatsapp-share" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Share
+                </a>
+                <button id="copyLinkBtn" class="share-button copy-link">
+                    <i class="fas fa-copy"></i> Copy Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden canvas for generating share image -->
+    <canvas id="shareCanvas" width="600" height="315"></canvas>
+
     <script>
         // Game state
         let state = {
@@ -462,7 +667,11 @@
             correctAnswers: 0,
             totalAnswers: 0,
             currentQuestion: null,
-            user: null
+            user: null,
+            inviterId: null,
+            inviterName: null,
+            inviterScore: null,
+            persistentScore: 0 // Added to track all-time score separately
         };
 
         // DOM elements
@@ -478,6 +687,7 @@
             registerBtn: document.getElementById('registerBtn'),
             userProfile: document.getElementById('userProfile'),
             profileUsername: document.getElementById('profileUsername'),
+            userTotalScore: document.getElementById('userTotalScore'),
             logoutBtn: document.getElementById('logoutBtn'),
             authButtons: document.getElementById('authButtons'),
 
@@ -492,7 +702,19 @@
             correctAnswers: document.getElementById('correctAnswers'),
             totalAnswers: document.getElementById('totalAnswers'),
             loading: document.getElementById('loading'),
-            questionContainer: document.getElementById('questionContainer')
+            questionContainer: document.getElementById('questionContainer'),
+
+            // Challenge elements
+            challengeBtn: document.getElementById('challengeBtn'),
+            shareModal: document.getElementById('shareModal'),
+            closeShareModal: document.getElementById('closeShareModal'),
+            shareImage: document.getElementById('shareImage'),
+            whatsappShareBtn: document.getElementById('whatsappShareBtn'),
+            copyLinkBtn: document.getElementById('copyLinkBtn'),
+            shareCanvas: document.getElementById('shareCanvas'),
+            invitedBanner: document.getElementById('invitedBanner'),
+            inviterName: document.getElementById('inviterName'),
+            inviterScore: document.getElementById('inviterScore')
         };
 
         // Confetti function
@@ -545,6 +767,10 @@
         // Check if user is already logged in
         function checkLoggedInUser() {
             const userId = localStorage.getItem('userId');
+
+            // Check for invitation parameters
+            checkForInvitation();
+
             if (userId) {
                 fetchUserProfile(userId);
             } else {
@@ -580,13 +806,12 @@
             if (state.user) {
                 elements.profileUsername.textContent = state.user.username;
 
-                // Also update game stats
-                state.score = state.user.score;
-                state.correctAnswers = state.user.correctAnswers;
-                state.totalAnswers = state.user.totalAnswers;
-                elements.score.textContent = state.score;
-                elements.correctAnswers.textContent = state.correctAnswers;
-                elements.totalAnswers.textContent = state.totalAnswers;
+                // Store the persistent score from the server
+                state.persistentScore = state.user.score;
+                elements.userTotalScore.textContent = state.persistentScore;
+
+                // The current session score remains unchanged in the stats bar
+                // This ensures we're showing the current game session score at the bottom
             }
         }
 
@@ -772,7 +997,7 @@
                 const result = await response.json();
                 console.log("Answer result:", result);
 
-                // Update score
+                // Update local game state
                 state.totalAnswers++;
                 if (result.correct) {
                     state.score += result.points;
@@ -795,7 +1020,7 @@
                     });
                 }
 
-                // Update UI
+                // Update UI with current state values
                 elements.score.textContent = state.score;
                 elements.correctAnswers.textContent = state.correctAnswers;
                 elements.totalAnswers.textContent = state.totalAnswers;
@@ -817,12 +1042,33 @@
                     elements.funFact.textContent = '';
                 }
 
+                // Display feedback and buttons
                 elements.feedback.style.display = 'block';
                 elements.nextBtn.style.display = 'block';
+                elements.challengeBtn.style.display = 'block';
 
-                // If user is logged in, update profile stats
+                // If user is logged in, update profile stats in the background
+                // but don't let it affect the current game session
                 if (state.user) {
-                    fetchUserProfile(state.user.userId);
+                    // Use a separate async function to avoid blocking the UI
+                    (async () => {
+                        try {
+                            // Fetch updated profile but don't let it override current game session
+                            const response = await fetch(`/api/user/${state.user.userId}`);
+                            const userData = await response.json();
+
+                            if (userData.success) {
+                                // Update the user data
+                                state.user = userData;
+                                // Update the persistent score in the tooltip
+                                state.persistentScore = userData.score;
+                                elements.userTotalScore.textContent = state.persistentScore;
+                            }
+                        } catch (profileError) {
+                            console.error('Error updating profile after answer:', profileError);
+                            // Continue showing feedback even if profile update fails
+                        }
+                    })();
                 }
 
             } catch (error) {
@@ -835,6 +1081,126 @@
                 });
             }
         }
+
+        // Generate share image
+        function generateShareImage() {
+            const canvas = elements.shareCanvas;
+            const ctx = canvas.getContext('2d');
+
+            // Clear canvas
+            ctx.fillStyle = '#1a2a63';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add gradient overlay
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, 'rgba(255, 74, 74, 0.7)');
+            gradient.addColorStop(1, 'rgba(0, 217, 197, 0.7)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add logo text
+            ctx.font = 'bold 40px "Segoe UI", sans-serif';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.fillText('GlobeTrotter Challenge', canvas.width / 2, 80);
+
+            // Add user info
+            const username = state.user ? state.user.username : 'A traveler';
+            ctx.font = '30px "Segoe UI", sans-serif';
+            ctx.fillText(`${username} has challenged you!`, canvas.width / 2, 140);
+
+            // Add score
+            ctx.font = 'bold 60px "Segoe UI", sans-serif';
+            ctx.fillText(`${state.score}`, canvas.width / 2, 220);
+            ctx.font = '25px "Segoe UI", sans-serif';
+            ctx.fillText('points', canvas.width / 2, 255);
+
+            // Add call to action
+            ctx.font = 'bold 30px "Segoe UI", sans-serif';
+            ctx.fillText('Can you beat this score?', canvas.width / 2, 300);
+
+            // Convert to image
+            return canvas.toDataURL('image/png');
+        }
+
+        // Open share modal
+        function openShareModal() {
+            // Generate share image
+            const imageUrl = generateShareImage();
+            elements.shareImage.src = imageUrl;
+
+            // Generate share link
+            const username = state.user ? state.user.username : 'Anonymous';
+            const userId = state.user ? state.user.userId : 'guest';
+            const baseUrl = window.location.origin + window.location.pathname;
+            const shareUrl = `${baseUrl}?inviter=${userId}&name=${encodeURIComponent(username)}&score=${state.score}`;
+
+            // Set WhatsApp share link
+            const whatsappText = `I scored ${state.score} points in GlobeTrotter! Can you beat my score?`;
+            elements.whatsappShareBtn.href = `https://wa.me/?text=${encodeURIComponent(whatsappText + ' ' + shareUrl)}`;
+
+            // Store share URL for copy button
+            elements.copyLinkBtn.dataset.shareUrl = shareUrl;
+
+            // Show modal
+            elements.shareModal.style.display = 'flex';
+        }
+
+        // Copy share link to clipboard
+        function copyShareLink() {
+            const shareUrl = elements.copyLinkBtn.dataset.shareUrl;
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy link: ', err);
+            });
+        }
+
+        // Check for invitation parameters in URL
+        function checkForInvitation() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const inviterId = urlParams.get('inviter');
+            const inviterName = urlParams.get('name');
+            const inviterScore = urlParams.get('score');
+
+            if (inviterId && inviterName && inviterScore) {
+                state.inviterId = inviterId;
+                state.inviterName = decodeURIComponent(inviterName);
+                state.inviterScore = inviterScore;
+
+                // Show invitation banner
+                elements.inviterName.textContent = state.inviterName;
+                elements.inviterScore.textContent = state.inviterScore;
+                elements.invitedBanner.style.display = 'block';
+
+                // Add event listener to close button
+                document.getElementById('closeBannerBtn').addEventListener('click', () => {
+                    elements.invitedBanner.style.display = 'none';
+                });
+
+                // Clean URL without reloading
+                const newUrl = window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+            }
+        }
+
+        // Close share modal
+        elements.closeShareModal.addEventListener('click', () => {
+            elements.shareModal.style.display = 'none';
+        });
+
+        // Close share modal when clicking outside
+        window.addEventListener('click', (event) => {
+            if (event.target === elements.shareModal) {
+                elements.shareModal.style.display = 'none';
+            }
+        });
+
+        // Challenge button click
+        elements.challengeBtn.addEventListener('click', openShareModal);
+
+        // Copy link button click
+        elements.copyLinkBtn.addEventListener('click', copyShareLink);
 
         // Event listeners
         elements.nextBtn.addEventListener('click', loadQuestion);
