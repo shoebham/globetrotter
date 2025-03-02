@@ -85,35 +85,6 @@ export USE_OPTIMIZATIONS=true
 python run.py
 ```
 
-## Performance Testing
-
-The project includes tools to measure and compare performance with different configurations:
-
-### Running Performance Tests
-
-```bash
-# Make the script executable
-chmod +x run_performance_test.sh
-
-# Run the performance tests
-./run_performance_test.sh
-```
-
-This will run tests with different optimization configurations and report the results.
-
-### Manual Performance Testing
-
-You can also test performance manually:
-
-```bash
-python performance_test.py --requests 20 --concurrent
-```
-
-Options:
-- `--requests`: Number of requests to make (default: 10)
-- `--concurrent`: Make concurrent requests instead of sequential
-- `--url`: Base URL of the API (default: http://localhost:5000)
-
 ## Deployment
 
 ### Railway
@@ -124,18 +95,6 @@ Options:
    - `USE_MEMORY_DB=true`
    - `USE_OPTIMIZATIONS=true`
 4. Deploy the application
-
-### Docker
-
-1. Build the Docker image:
-   ```bash
-   docker build -t globetrotter .
-   ```
-
-2. Run the container:
-   ```bash
-   docker run -p 8000:8000 -e USE_MEMORY_DB=true -e USE_OPTIMIZATIONS=true globetrotter
-   ```
 
 ## Project Structure
 
@@ -152,8 +111,6 @@ globetrotter/
 │   └── templates/          # HTML templates
 ├── data/                   # Data files
 │   └── cities.json         # Sample city data
-├── performance_test.py     # Performance testing script
-├── run_performance_test.sh # Performance test runner
 ├── run.py                  # Application entry point
 └── README.md               # This file
 ```
