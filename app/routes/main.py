@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, send_from_directory
+from flask import Blueprint, render_template, send_from_directory, jsonify
 from flask import Flask, request, jsonify, render_template, send_from_directory
 from flask_cors import CORS
 import uuid
@@ -70,3 +70,11 @@ def check_answer(response):
 @main_bp.route('/')
 def index():
     return render_template('index.html')
+
+@main_bp.route('/health')
+def health_check():
+    """Health check endpoint for Railway to verify the app is running"""
+    return jsonify({
+        "status": "ok",
+        "message": "GlobeTrotter API is running"
+    })
