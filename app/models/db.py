@@ -13,6 +13,8 @@ import time
 # Database configuration
 DATABASE_URL = os.environ.get('DATABASE_URL')
 DB_PATH = 'travel_quiz.db'
+USE_MEMORY_DB = os.environ.get('USE_MEMORY_DB', 'true').lower() == 'true'
+USE_OPTIMIZATIONS = os.environ.get('USE_OPTIMIZATIONS', 'true').lower() == 'true'
 
 # Simple cache implementation
 class Cache:
@@ -23,6 +25,9 @@ class Cache:
         self.lock = threading.Lock()
     
     def get(self, key):
+        if not USE_OPTIMIZATIONS:
+            return None
+            
         with self.lock:
             if key in self.cache:
                 value, timestamp = self.cache[key]
@@ -35,6 +40,9 @@ class Cache:
             return None
     
     def set(self, key, value):
+        if not USE_OPTIMIZATIONS:
+            return
+            
         with self.lock:
             # If cache is full, remove oldest entry
             if len(self.cache) >= self.max_size:
@@ -45,6 +53,9 @@ class Cache:
             self.cache[key] = (value, time.time())
     
     def invalidate(self, key=None):
+        if not USE_OPTIMIZATIONS:
+            return
+            
         with self.lock:
             if key is None:
                 # Clear entire cache
@@ -59,14 +70,46 @@ question_cache = Cache()
 # Add a city lookup cache for faster access by ID
 city_lookup_cache = Cache()
 
+# In-memory database for faster access
+memory_connection = None
+def init_memory_db():
+    """Initialize in-memory database by copying from file database"""
+    global memory_connection
+    
+    if not USE_MEMORY_DB or not USE_OPTIMIZATIONS:
+        return
+        
+    try:
+        # Create in-memory database
+        memory_connection = sqlite3.connect(':memory:', check_same_thread=False)
+        memory_connection.row_factory = sqlite3.Row
+        
+        # Copy data from file database
+        file_conn = sqlite3.connect(DB_PATH)
+        file_conn.backup(memory_connection)
+        file_conn.close()
+        
+        print("Initialized in-memory database for faster access")
+        return memory_connection
+    except Exception as e:
+        print(f"Error initializing in-memory database: {e}")
+        memory_connection = None
+        return None
+
 # Connection pool for SQLite
 class ConnectionPool:
     def __init__(self, max_connections=20):  # Increased max connections
-        self.max_connections = max_connections
+        self.max_connections = max_connections if USE_OPTIMIZATIONS else 5
         self.connections = []
         self.lock = threading.Lock()
         
     def get_connection(self):
+        global memory_connection
+        
+        # If using in-memory database and it's initialized, return it
+        if USE_OPTIMIZATIONS and USE_MEMORY_DB and memory_connection:
+            return memory_connection
+            
         with self.lock:
             if not self.connections:
                 # Create a new connection if none available
@@ -78,6 +121,12 @@ class ConnectionPool:
                 return self.connections.pop()
     
     def release_connection(self, conn):
+        global memory_connection
+        
+        # Don't release in-memory connection
+        if USE_OPTIMIZATIONS and USE_MEMORY_DB and conn == memory_connection:
+            return
+            
         with self.lock:
             if len(self.connections) < self.max_connections:
                 self.connections.append(conn)
@@ -90,6 +139,9 @@ connection_pool = ConnectionPool()
 # Pre-parse JSON data to avoid repeated parsing
 def preprocess_city_data(city):
     """Pre-process city data to avoid repeated JSON parsing"""
+    if not USE_OPTIMIZATIONS:
+        return city
+        
     if isinstance(city, dict):
         result = dict(city)
         if 'clues' in result and isinstance(result['clues'], str):
@@ -149,14 +201,18 @@ def init_db():
     )
     ''')
     
-    # Create questions table
+    # Create cities table if it doesn't exist
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS questions (
+    CREATE TABLE IF NOT EXISTS cities (
         id TEXT PRIMARY KEY,
-        question TEXT NOT NULL,
-        options TEXT NOT NULL,
-        correct_answer TEXT NOT NULL,
-        fun_facts TEXT
+        city TEXT NOT NULL,
+        country TEXT,
+        clues TEXT,
+        fun_fact TEXT,
+        trivia TEXT,
+        times_shown INTEGER DEFAULT 0,
+        times_correct INTEGER DEFAULT 0,
+        times_incorrect INTEGER DEFAULT 0
     )
     ''')
     
@@ -164,43 +220,44 @@ def init_db():
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_username ON users(username)')
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_user_id ON users(id)')
     
-    # Add index on cities table if it exists
-    try:
-        cursor.execute('CREATE INDEX IF NOT EXISTS idx_city_id ON cities(id)')
-        cursor.execute('CREATE INDEX IF NOT EXISTS idx_city_country ON cities(country)')
-    except:
-        pass
+    # Add index on cities table
+    cursor.execute('CREATE INDEX IF NOT EXISTS idx_city_id ON cities(id)')
+    cursor.execute('CREATE INDEX IF NOT EXISTS idx_city_country ON cities(country)')
     
-    # Check if questions table is empty
-    cursor.execute('SELECT COUNT(*) FROM questions')
+    # Check if cities table is empty
+    cursor.execute('SELECT COUNT(*) FROM cities')
     count = cursor.fetchone()[0]
     
-    # Load sample questions if table is empty
+    # Load sample cities if table is empty
     if count == 0:
         try:
             # Try to load from data directory
-            data_path = Path('data/questions.json')
+            data_path = Path('data/cities.json')
             if data_path.exists():
                 with open(data_path, 'r') as f:
-                    questions = json.load(f)
+                    cities = json.load(f)
                 
-                for q in questions:
+                for city in cities:
                     cursor.execute(
-                        'INSERT INTO questions (id, question, options, correct_answer, fun_facts) VALUES (?, ?, ?, ?, ?)',
+                        'INSERT INTO cities (id, city, country, clues, fun_fact, trivia) VALUES (?, ?, ?, ?, ?, ?)',
                         (
-                            q['id'],
-                            q['question'],
-                            json.dumps(q['options']),
-                            q['correct_answer'],
-                            json.dumps(q.get('fun_facts', []))
+                            city.get('id', str(uuid.uuid4())),
+                            city['city'],
+                            city.get('country', ''),
+                            json.dumps(city.get('clues', [])),
+                            json.dumps(city.get('fun_fact', [])),
+                            json.dumps(city.get('trivia', []))
                         )
                     )
-                print(f"Loaded {len(questions)} questions from data file")
+                print(f"Loaded {len(cities)} cities from data file")
         except Exception as e:
-            print(f"Error loading sample questions: {e}")
+            print(f"Error loading sample cities: {e}")
     
     conn.commit()
     release_db_connection(conn)
+    
+    # Initialize in-memory database after file database is set up
+    init_memory_db()
 
 def register_user(username, password):
     """Register a new user with a unique username"""

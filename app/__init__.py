@@ -69,6 +69,24 @@ def create_app():
     # Preload data into cache for better performance
     preload_cache()
     
+    # Add a route to check performance
+    @app.route('/performance')
+    def performance():
+        """Endpoint to check performance metrics"""
+        from app.models.db import memory_connection, USE_MEMORY_DB, USE_OPTIMIZATIONS
+        
+        metrics = {
+            'optimizations_enabled': USE_OPTIMIZATIONS,
+            'memory_db_enabled': USE_MEMORY_DB,
+            'memory_db_initialized': memory_connection is not None,
+            'cache_stats': {
+                'cities_cached': question_cache.get('all_cities') is not None,
+                'city_lookup_cached': city_lookup_cache.get('cities_by_id') is not None
+            }
+        }
+        
+        return json.dumps(metrics)
+    
     return app
 
 def preload_cache():

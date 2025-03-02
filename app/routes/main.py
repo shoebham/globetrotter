@@ -14,7 +14,13 @@ main_bp = Blueprint('main', __name__)
 
 init_db()
 
+# Pre-compute question options for faster response
+question_options_cache = {}
+
 def get_questions():
+    """Get a random question with options"""
+    global question_options_cache
+    
     # Try to get a random question from cache first
     cached_questions = question_cache.get('all_cities')
     
@@ -34,31 +40,51 @@ def get_questions():
             city_dict = {city['id']: city for city in cities}
             city_lookup_cache.set('cities_by_id', city_dict)
             
+            # Pre-compute question options for each city
+            for city in cities:
+                city_id = city['id']
+                country = city['country']
+                # Get other cities (avoiding same city and country)
+                other_cities = [c for c in cities if c['id'] != city_id and c['country'] != country]
+                if len(other_cities) >= 3:
+                    other_cities = random.sample(other_cities, 3)
+                options = [c['city'] for c in other_cities]
+                options.append(city['city'])
+                random.shuffle(options)
+                question_options_cache[city_id] = options
+            
             cached_questions = cities
     
     if cached_questions:
         # Select a random city from the cached list
         city = random.choice(cached_questions)
-        
-        # Get other cities for options (avoiding same city and country)
-        other_cities = [c for c in cached_questions if c['id'] != city['id'] and c['country'] != city['country']]
-        if len(other_cities) >= 3:
-            other_cities = random.sample(other_cities, 3)
+        city_id = city['id']
         
         # Use pre-parsed clues if available
         if 'clues_parsed' in city:
             clues = city['clues_parsed']
         else:
             clues = json.loads(city['clues'])
+        
+        # Use pre-computed options if available
+        if city_id in question_options_cache:
+            options = question_options_cache[city_id].copy()  # Make a copy to avoid modifying the cache
+        else:
+            # Fallback to computing options on the fly
+            other_cities = [c for c in cached_questions if c['id'] != city_id and c['country'] != city['country']]
+            if len(other_cities) >= 3:
+                other_cities = random.sample(other_cities, 3)
+            options = [c['city'] for c in other_cities]
+            options.append(city['city'])
+            random.shuffle(options)
+            # Cache for next time
+            question_options_cache[city_id] = options.copy()
             
-        options = [c['city'] for c in other_cities]
-        options.append(city['city'])
         question = {
             'question': clues[int(random.random()*len(clues))],
             'options': options,
-            'questionId': city['id']
-        }    
-        random.shuffle(question['options'])
+            'questionId': city_id
+        }
         return question
     else:
         # Fallback to database if cache is empty
@@ -77,12 +103,13 @@ def get_questions():
             
         options = [c['city'] for c in other_cities]
         options.append(city['city'])
+        random.shuffle(options)
+        
         question = {
             'question': clues[int(random.random()*len(clues))],
             'options': options,
             'questionId': city['id']
-        }    
-        random.shuffle(question['options'])
+        }
         release_db_connection(conn)
         return question
 
@@ -98,21 +125,21 @@ def check_answer(response):
     city = None
     
     if city_dict and questionId in city_dict:
+        # Direct dictionary lookup - O(1) operation
         city = city_dict[questionId]
     else:
         # Try to get from the cities list cache
         cached_questions = question_cache.get('all_cities')
         if cached_questions:
-            # Find the city in the cached list
-            for c in cached_questions:
-                if c['id'] == questionId:
-                    city = c
-                    # Also update the lookup cache for next time
-                    if not city_dict:
-                        city_dict = {}
-                    city_dict[questionId] = city
-                    city_lookup_cache.set('cities_by_id', city_dict)
-                    break
+            # Create a temporary lookup dictionary for faster access
+            temp_dict = {c['id']: c for c in cached_questions}
+            if questionId in temp_dict:
+                city = temp_dict[questionId]
+                # Also update the lookup cache for next time
+                if not city_dict:
+                    city_dict = {}
+                city_dict[questionId] = city
+                city_lookup_cache.set('cities_by_id', city_dict)
     
     # If not found in cache, get from database
     if not city:
