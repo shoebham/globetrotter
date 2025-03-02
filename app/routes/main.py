@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import json
 import random
 import sqlite3
-from app.models.db import init_db
+from app.models.db import init_db, update_user_score
 
 main_bp = Blueprint('main', __name__)
 
@@ -40,6 +40,7 @@ def get_questions():
 def check_answer(response):    
     user_answer = response['answer']
     questionId = response['questionId']
+    user_id = response.get('userId')
 
     conn = sqlite3.connect("travel_quiz.db")
     conn.row_factory = sqlite3.Row
@@ -50,6 +51,9 @@ def check_answer(response):
 
     is_correct = user_answer == city['city']
 
+    # Update user score if user is logged in
+    if user_id:
+        update_user_score(user_id, is_correct)
 
     conn.commit()
     conn.close()

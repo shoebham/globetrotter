@@ -34,7 +34,8 @@ def init_db():
     cursor.execute('''
                    CREATE TABLE IF NOT EXISTS users (
                     id TEXT PRIMARY KEY, 
-                    username TEXT NOT NULL, 
+                    username TEXT NOT NULL UNIQUE, 
+                    password TEXT NOT NULL,
                     score INTEGER DEFAULT 0, 
                     correct_answers INTEGER DEFAULT 0, 
                     total_answers INTEGER DEFAULT 0
@@ -65,29 +66,57 @@ def init_db():
 
 def get_db_connection():
     return sqlite3.connect("travel_quiz.db")
-def register_user(username):
 
+def register_user(username, password):
+    """Register a new user with a unique username"""
     user_id = str(uuid.uuid4())
     
     conn = get_db_connection()
+    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     
     try:
         cursor.execute('''
-        INSERT INTO users (id, username, score, correct_answers, total_answers)
-        VALUES (?, ?, 0, 0, 0)
-        ''', (user_id, username))
+        INSERT INTO users (id, username, password, score, correct_answers, total_answers)
+        VALUES (?, ?, ?, 0, 0, 0)
+        ''', (user_id, username, password))
         conn.commit()
-        return {'userId': user_id, 'username': username, 'success': True}
+        return {'userId': user_id, 'username': username, 'score': 0, 'correctAnswers': 0, 'totalAnswers': 0, 'success': True}
     except sqlite3.IntegrityError:
         # Username already exists
         return {'error': 'Username already taken', 'success': False}
     finally:
         conn.close()
 
-def get_user_profile(user_id):
-
+def login_user(username, password):
+    """Login a user by username and password"""
     conn = get_db_connection()
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
+    user = cursor.fetchone()
+    conn.close()
+    
+    if not user:
+        return {'error': 'User not found', 'success': False}
+    
+    if user['password'] != password:
+        return {'error': 'Incorrect password', 'success': False}
+    
+    return {
+        'userId': user['id'],
+        'username': user['username'],
+        'score': user['score'],
+        'correctAnswers': user['correct_answers'],
+        'totalAnswers': user['total_answers'],
+        'success': True
+    }
+
+def get_user_profile(user_id):
+    """Get user profile by user ID"""
+    conn = get_db_connection()
+    conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
     
     cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
