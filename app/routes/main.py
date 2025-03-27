@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import json
 import random
 import sqlite3
-from app.models.db import init_db, update_user_score, get_db_connection, release_db_connection, question_cache, city_lookup_cache, preprocess_city_data
+from app.models.db import init_db, update_user_score, get_db_connection, release_db_connection, store_attempt,question_cache, city_lookup_cache, preprocess_city_data
 
 main_bp = Blueprint('main', __name__)
 
@@ -119,6 +119,9 @@ def check_answer(response):
     user_answer = response['answer']
     questionId = response['questionId']
     user_id = response.get('userId')
+    time_taken = response.get('time_taken')
+    date_answered= response.get('time_taken')
+
 
     # Try to get city from the lookup cache first (fastest)
     city_dict = city_lookup_cache.get('cities_by_id')
@@ -176,7 +179,18 @@ def check_answer(response):
         fun_facts = city['fun_fact_parsed']
     else:
         fun_facts = json.loads(city['fun_fact'])
-        
+
+    if user_id:
+        # correct answer, user id, selected answer, time taken
+        attempt = {
+            "city_id":"43d0b877-3c5d-473d-808f-56a72256ec1f",
+            "user_id":"fbfed74f-e7eb-43d9-846a-c7edbab08ea9",
+            "selected_answer":"hanoi",
+            "time_taken":1,
+            "date":20250327
+        }
+        store_attempt(attempt)
+
     return jsonify({
             'correct': is_correct,
             'correctAnswer': city['city'],

@@ -215,6 +215,19 @@ def init_db():
         times_incorrect INTEGER DEFAULT 0
     )
     ''')
+
+    cursor.execute('''
+                   CREATE TABLE IF NOT EXISTS attempts(
+                    aid INTEGER PRIMARY KEY,
+                    uid TEXT,
+                   cid TEXT,
+                   selected_city TEXT,
+                   date_answered INTEGER ,
+                   time_taken INTEGER,
+                   FOREIGN KEY(uid) REFERENCES users(id),
+                   FOREIGN KEY(cid) REFERENCES cities(id)
+                   )
+                   ''')
     
     # Create indexes for better performance
     cursor.execute('CREATE INDEX IF NOT EXISTS idx_username ON users(username)')
@@ -364,3 +377,24 @@ def update_user_score(user_id, is_correct):
     
     # Invalidate the user cache entry since the data has changed
     user_cache.invalidate(user_id)
+
+def store_attempt(attempt):
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        print(f"{attempt['user_id'],attempt['city_id'],attempt['selected_answer'],attempt['time_taken'],attempt['date']}")
+         
+        cursor.execute(
+            '''    
+            INSERT INTO attempts (id, username, password, score, correct_answers, total_answered) 
+            VALUES (?, ?, ?, ?,?)''',
+            (attempt['user_id'],attempt['city_id'],attempt['selected_answer'],attempt['time_taken'],attempt['date'])
+            )
+            
+        conn.commit()
+        release_db_connection(conn=conn)
+    except Exception as e:
+        print(e)
+
+
+
